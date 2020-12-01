@@ -2,7 +2,8 @@ import React from 'react'
 
 const ListedItem = () => {
     return (
-        <div>
+        <div className='shop-item'>
+
 
         </div>
     )
