@@ -26,7 +26,7 @@ const Cart = ({ setOpenCart }) => {
             yy: ''
         },
         cvv: ''
-    })
+    });
 
     return (
         <div className='cart '>
@@ -34,6 +34,7 @@ const Cart = ({ setOpenCart }) => {
                 <div className="close-crt-btn" onClick={() => setOpenCart(false)}>
                     <Close size={20} />
                 </div>
+
                 <CartItem />
 
             </div>

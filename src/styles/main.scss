@@ -8,6 +8,8 @@
 .App{
     height: 100vh;
     overflow: hidden;
+    // background-image: url('../assets/BG1-desktop.jpg');
+    // bac
 }
 
 .header{
@@ -56,9 +58,27 @@
     margin: 0 auto;
     width: 80%;
     height: 90vh;
-    // background-color: #e6e6e6;
+    background-color: #fff;
     border-left: .5px solid #c7c7c7c2;
     border-right: .5px solid #c7c7c7c2;
+    .shop-header{
+        text-align: center;
+        border-bottom: .5px solid #c7c7c7c2;
+        h1{
+            padding-top: 1rem;
+        }
+        .devider{
+            height: 75px;
+            width: 150px;
+            margin: 0 auto;
+            background-image: url('../assets/devider.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            top: -5px;
+        }
+    }
 
 }
 
