@@ -1,4 +1,5 @@
 import React from 'react'
+import ListedItem from './ListedItem';
 
 const Shop = () => {
     return (
@@ -7,7 +8,10 @@ const Shop = () => {
                 <h1>רשימת מוצרים</h1>
                 <div className="devider"></div>
             </div>
-
+            <div className="shop-body">
+                <ListedItem />
+                <ListedItem />
+            </div>
         </div>
     )
 }
