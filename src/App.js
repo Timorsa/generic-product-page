@@ -13,15 +13,16 @@ import './styles/main.scss';
 const App = () => {
 
   const [openCart, setOpenCart] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
   return (
     <div className="App">
       {/* <Modal /> */}
       {
-        openCart && <Cart setOpenCart={setOpenCart} />
+        openCart && <Cart cartItems={cartItems} setCartItems={setCartItems} setOpenCart={setOpenCart} />
       }
       <Header setOpenCart={setOpenCart} />
-      <Shop />
+      <Shop cartItems={cartItems} setCartItems={setCartItems} setOpenCart={setOpenCart} />
       <Footer />
     </div>
   );

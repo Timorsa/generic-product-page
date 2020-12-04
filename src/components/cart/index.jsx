@@ -5,7 +5,7 @@ import CartItem from './CartItem'
 
 
 
-const Cart = ({ setOpenCart }) => {
+const Cart = ({ cartItems, setCartItems, setOpenCart }) => {
     // enum : CART , ADDRESS, PAYMENT, CONFORMATION
     const [cartMode, setCartMode] = useState('CART');
     const [address, setAddress] = useState({
@@ -28,14 +28,40 @@ const Cart = ({ setOpenCart }) => {
         cvv: ''
     });
 
+    const cartHeading = () => {
+        switch (cartMode) {
+            case 'CART':
+                return 'סל קניות'
+                break;
+            case 'ADDRESS':
+                return 'כתובת למשלוח'
+                break;
+            case 'PAYMENT':
+                return 'פרטי אמצעי תשלום';
+                break;
+            case 'CONFERMATION':
+                return '';
+                break;
+            default:
+                return '';
+        }
+    }
+
     return (
         <div className='cart '>
             <div>
                 <div className="close-crt-btn" onClick={() => setOpenCart(false)}>
                     <Close size={20} />
                 </div>
+                <div className="crt-heading">
+                    <h1>{cartHeading()}</h1>
+                </div>
 
-                <CartItem />
+                {
+                    cartItems.map(item => <CartItem item={item} />)
+                }
+
+
 
             </div>
             <div className="proceed-payment-btn">

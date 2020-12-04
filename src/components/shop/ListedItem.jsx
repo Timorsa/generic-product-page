@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-const ListedItem = ({ listItem }) => {
+const ListedItem = ({ listItem, addToCart }) => {
 
     const { name, nameEng, desc, price, imgClass } = listItem;
 
@@ -17,7 +17,7 @@ const ListedItem = ({ listItem }) => {
                     <div className="desc">{desc}</div>
                     <div className="price">{price}</div>
                 </div>
-                <div className="add-btn">הוסף לסל</div>
+                <div className="add-btn" role='button' onClick={() => addToCart(listItem)}>הוסף לסל</div>
             </div>
 
         </div>

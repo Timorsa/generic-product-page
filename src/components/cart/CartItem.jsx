@@ -9,21 +9,19 @@ const itemData = {
 }
 
 
-const CartItem = () => {
+const CartItem = ({ item }) => {
 
     const [quantity, setQuantity] = useState(1);
 
     return (
         <>
-            <div className="crt-heading">
-                <h1>סל קניות</h1>
-            </div>
+            
             <div className="cart-item">
                 <div className="item-img"></div>
                 <div className="cart-item-desc">
-                    <div className="cart-item-heading">{itemData.name}</div>
-                    <div className="cart-item-description">{itemData.desc}</div>
-                    <h2 dir='rtl'>{`ש''ח ${'שח' + itemData.price * quantity} `}</h2>
+                    <div className="cart-item-heading">{item.name}</div>
+                    <div className="cart-item-description">{item.desc}</div>
+                    <h2 dir='rtl'>{`ש''ח ${'שח' + item.price * quantity} `}</h2>
                     <div className="cart-item-quantity">
                         <Minus onClick={() => setQuantity(quantity - 1)} />
                         <span className="cart-item-qty">{quantity}</span>

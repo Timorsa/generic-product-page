@@ -18,7 +18,14 @@ const lemonarakData = [
     }
 ]
 
-const Shop = () => {
+const Shop = ({ cartItems, setCartItems, setOpenCart }) => {
+
+    const addToCart = (item) => {
+        const cartItem = { ...item, qty: 1 };
+        setCartItems([...cartItems, cartItem]);
+        setOpenCart(true);
+    }
+
     return (
         <div className='shop-cont'>
             <div className="shop-header">
@@ -27,7 +34,7 @@ const Shop = () => {
             </div>
             <div className="shop-body">
                 {
-                    lemonarakData.map((item, index) => <ListedItem key={index} listItem={item} />)
+                    lemonarakData.map((item, index) => <ListedItem key={index} listItem={item} addToCart={addToCart} />)
                 }
 
             </div>
