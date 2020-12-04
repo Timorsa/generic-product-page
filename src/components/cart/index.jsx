@@ -55,7 +55,7 @@ const Cart = ({ cartItems, setCartItems, setOpenCart }) => {
                 </div>
 
                 {
-                    cartItems.map(item => <CartItem item={item} />)
+                    cartItems.map(item => <CartItem key={item.desc} item={item} />)
                 }
 
 

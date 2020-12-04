@@ -239,9 +239,20 @@
             width: 45%;
             height: 13vh;
             margin-right: 10px;
-            background: black;
+              background-color: #C8BCB1;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            
         }
-
+        .lemonarak-box{
+                background-image: url('../assets/lemonarak-box.jpeg');
+         }
+        .lemonarak-bottle{
+                background-image: url('../assets/1.png');
+                background-size: contain;
+                background-color:#E1D6CB
+            }
         .cart-item-desc{
             text-align: right;
             margin: .4rem;
@@ -249,11 +260,20 @@
             flex-direction: column;
         }
         .cart-item-quantity{
-            padding: .2rem   0;
+            
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
-            background: #e6e6e6;
+            span{
+                padding: .2rem  .8rem;
+                border: .2px solid #c7c7c7c2;
+            }
+        }
+        .cart-item-qty{
+            background: #fff;
+        }
+        .cart-item-btn{
+            background: #F1F0F0;
         }
     }
     .proceed-payment-btn{

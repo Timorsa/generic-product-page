@@ -32,8 +32,9 @@ const Shop = ({ cartItems, setCartItems, setOpenCart }) => {
                     return { ...prod, qty: prod.qty + 1 }
                 } else return prod;
             })
-            inCart ? setCartItems(updatedCart) : setCartItems([...cartItems, {...item, qty: 1}]);
+            inCart ? setCartItems(updatedCart) : setCartItems([...cartItems, { ...item, qty: 1 }]);
         }
+        setOpenCart(true)
     }
 
     return (

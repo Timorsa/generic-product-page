@@ -13,6 +13,7 @@ const CartItem = ({ item }) => {
 
     const [quantity, setQuantity] = useState(item.qty);
 
+    console.log(item)
 
     useEffect(() => {
     }, [item])
@@ -20,15 +21,19 @@ const CartItem = ({ item }) => {
         <>
 
             <div className="cart-item">
-                <div className="item-img"></div>
+                <div className={`item-img  ${item.imgClass}`}></div>
                 <div className="cart-item-desc">
                     <div className="cart-item-heading">{item.name}</div>
                     <div className="cart-item-description">{item.desc}</div>
-                    <h2 dir='rtl'>{`ש''ח ${'שח' + item.price * quantity} `}</h2>
+                    <h2 dir='rtl'>{` ${ item.price * quantity}  ש''ח`}</h2>
                     <div className="cart-item-quantity">
-                        <Minus onClick={() => setQuantity(quantity - 1)} />
+                        <span className="cart-item-btn">
+                            <Minus onClick={() => setQuantity(quantity - 1)} />
+                        </span>
                         <span className="cart-item-qty">{quantity}</span>
-                        <Plus onClick={() => setQuantity(quantity + 1)} />
+                        <span className="cart-item-btn">
+                            <Plus onClick={() => setQuantity(quantity + 1)} />
+                        </span>
                     </div>
                 </div>
 
