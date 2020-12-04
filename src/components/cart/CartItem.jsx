@@ -11,11 +11,14 @@ const itemData = {
 
 const CartItem = ({ item }) => {
 
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(item.qty);
 
+
+    useEffect(() => {
+    }, [item])
     return (
         <>
-            
+
             <div className="cart-item">
                 <div className="item-img"></div>
                 <div className="cart-item-desc">

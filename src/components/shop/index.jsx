@@ -21,9 +21,19 @@ const lemonarakData = [
 const Shop = ({ cartItems, setCartItems, setOpenCart }) => {
 
     const addToCart = (item) => {
-        const cartItem = { ...item, qty: 1 };
-        setCartItems([...cartItems, cartItem]);
-        setOpenCart(true);
+
+        if (cartItems.length === 0) {
+            setCartItems([{ ...item, qty: 1 }]);
+        } else {
+            let inCart = false;
+            const updatedCart = cartItems.map(prod => {
+                if (prod.desc === item.desc) {
+                    inCart = true
+                    return { ...prod, qty: prod.qty + 1 }
+                } else return prod;
+            })
+            inCart ? setCartItems(updatedCart) : setCartItems([...cartItems, {...item, qty: 1}]);
+        }
     }
 
     return (

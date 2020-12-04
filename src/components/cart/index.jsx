@@ -1,8 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GrClose as Close } from 'react-icons/gr';
 
 import CartItem from './CartItem'
 
+const cartHeading = (cartMode) => {
+    switch (cartMode) {
+        case 'CART':
+            return 'סל קניות'
+        case 'ADDRESS':
+            return 'כתובת למשלוח'
+        case 'PAYMENT':
+            return 'פרטי אמצעי תשלום';
+        case 'CONFERMATION':
+            return '';
+        default:
+            return '';
+    }
+}
 
 
 const Cart = ({ cartItems, setCartItems, setOpenCart }) => {
@@ -28,24 +42,7 @@ const Cart = ({ cartItems, setCartItems, setOpenCart }) => {
         cvv: ''
     });
 
-    const cartHeading = () => {
-        switch (cartMode) {
-            case 'CART':
-                return 'סל קניות'
-                break;
-            case 'ADDRESS':
-                return 'כתובת למשלוח'
-                break;
-            case 'PAYMENT':
-                return 'פרטי אמצעי תשלום';
-                break;
-            case 'CONFERMATION':
-                return '';
-                break;
-            default:
-                return '';
-        }
-    }
+
 
     return (
         <div className='cart '>
@@ -54,7 +51,7 @@ const Cart = ({ cartItems, setCartItems, setOpenCart }) => {
                     <Close size={20} />
                 </div>
                 <div className="crt-heading">
-                    <h1>{cartHeading()}</h1>
+                    <h1>{cartHeading(cartMode)}</h1>
                 </div>
 
                 {
