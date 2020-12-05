@@ -11,6 +11,14 @@
     // background-image: url('../assets/BG1-desktop.jpg');
     // bac
 }
+ .overlay {
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        top: 0%;
+        z-index: 100;
+        background: linear-gradient(292deg, rgba(255,255,255,1) 22%, rgba(246,255,213,1) 85%);
+ }
 
 .header{
     min-height: 75px;
@@ -88,6 +96,9 @@
         .shop-item{
             // width: 600px;
             // height: 300px;
+            opacity:0;
+            position: relative;
+            top: 25px;
             margin: 1rem;
             display: flex;
            // padding: .4rem;
@@ -276,6 +287,66 @@
             background: #F1F0F0;
         }
     }
+
+    .addressForm {
+ display:flex;
+ flex-direction: column;
+    
+  background: #FFFFFF;
+  margin: 0 auto 100px;
+  padding: 45px;
+  h2{
+      margin: 1rem 0;
+  }
+ input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+textarea{
+outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  height: 250px;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+}
+
+.credit-card-form {
+ display:flex;
+ flex-direction: column;
+text-align: left;
+  background: #FFFFFF;
+  margin: 1rem auto 100px;
+  padding: 45px;
+  form{
+      margin-top: 2rem;
+  }
+//   h2{
+//       margin: 1rem 0;
+//   }
+ input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}}
+
+
     .proceed-payment-btn{
         padding: 2rem ;
         text-align: center;

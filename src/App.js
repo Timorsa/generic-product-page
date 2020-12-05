@@ -4,6 +4,7 @@ import Shop from './components/shop';
 import Cart from './components/cart';
 import Header from './components/header';
 import Footer from './components/footer';
+import ShopOverlay from './components/ShopOverlay'
 
 import './styles/main.scss';
 
@@ -17,6 +18,7 @@ const App = () => {
 
   return (
     <div className="App">
+    <ShopOverlay/>
       {/* <Modal /> */}
       {
         openCart && <Cart cartItems={cartItems} setCartItems={setCartItems} setOpenCart={setOpenCart} />

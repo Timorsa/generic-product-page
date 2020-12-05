@@ -1,4 +1,6 @@
-import React from 'react'
+import React , {useEffect }from 'react'
+import gsap from 'gsap'
+
 import ListedItem from './ListedItem';
 
 const lemonarakData = [
@@ -19,6 +21,16 @@ const lemonarakData = [
 ]
 
 const Shop = ({ cartItems, setCartItems, setOpenCart }) => {
+
+       useEffect(() => {
+        gsap.to('.shop-item', .4, {
+             delay: 1.5,
+             y: '-25px',
+            opacity: 1,
+            ease: 'Expo.easeIn',
+        });
+     
+    }, []);
 
     const addToCart = (item) => {
 
