@@ -13,7 +13,6 @@ const CartItem = ({ item }) => {
 
     const [quantity, setQuantity] = useState(item.qty);
 
-    console.log(item)
 
     useEffect(() => {
     }, [item])

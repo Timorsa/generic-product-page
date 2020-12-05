@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import gsap from 'gsap';
 import { GrClose as Close } from 'react-icons/gr';
 
 import CartItem from './CartItem';
@@ -23,7 +24,7 @@ const cartHeading = (cartMode) => {
 
 const Cart = ({ cartItems, setCartItems, setOpenCart }) => {
     // enum : CART , ADDRESS, PAYMENT, CONFORMATION
-    const [cartMode, setCartMode] = useState('PAYMENT');
+    const [cartMode, setCartMode] = useState('ADDRESS');
     const [address, setAddress] = useState({
         name: '',
         email: '',
@@ -46,12 +47,23 @@ const Cart = ({ cartItems, setCartItems, setOpenCart }) => {
         cvv: ''
     });
 
+    const closeCart = () => {
+        gsap.to('.cart', 1, {
+            right:'-100%',
+            ease: 'Expo.easeInOut',
+        })
+           gsap.to('.cart', 0.2, {
+            delay: 2,
+            // opacity: 0,
+            display: 'none'
+        })
+    }
 
 
     return (
         <div className='cart '>
             <div>
-                <div className="close-crt-btn" onClick={() => setOpenCart(false)}>
+                <div className="close-crt-btn" onClick={() => closeCart()}>
                     <Close size={20} />
                 </div>
                 <div className="crt-heading">
@@ -62,10 +74,10 @@ const Cart = ({ cartItems, setCartItems, setOpenCart }) => {
                     cartItems.map(item => <CartItem key={item.desc} item={item} />)
                 }
 
-               { false && <AdressForm address={address} setAddress={setAddress}/> }
+               { true && <AdressForm address={address} setAddress={setAddress}/> }
 
 
-                <CreditCardForm/>
+               {false &&  <CreditCardForm/> }
 
 
 

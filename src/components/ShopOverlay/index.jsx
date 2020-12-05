@@ -12,7 +12,7 @@ const ShopOverlay = () => {
         gsap.to('.overlay', 0.2, {
             delay: 3,
             opacity: 0,
-            display: 'none'
+            // display: 'none'
         })
     }, []);
 
