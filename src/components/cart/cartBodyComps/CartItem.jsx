@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import gsap from 'gsap';
 
 import { GrFormSubtract as Minus, GrFormAdd as Plus } from 'react-icons/gr';
 
-const itemData = {
-    name: 'ארגז לימונערק דודו 750מ"ל ',
-    desc: "Ha'arak Dudu Lemon",
-    price: 828
-}
 
 
-const CartItem = ({ item }) => {
 
-    const [quantity, setQuantity] = useState(item.qty);
+const CartItem = ({ item , updateQty}) => {
+    
 
-
-    useEffect(() => {
-    }, [item])
     return (
         <>
 
@@ -24,14 +17,17 @@ const CartItem = ({ item }) => {
                 <div className="cart-item-desc">
                     <div className="cart-item-heading">{item.name}</div>
                     <div className="cart-item-description">{item.desc}</div>
-                    <h2 dir='rtl'>{` ${ item.price * quantity}  ש''ח`}</h2>
+                    <h2 dir='rtl'>{` ${ item.price * item.qty}  ש''ח`}</h2>
                     <div className="cart-item-quantity">
                         <span className="cart-item-btn">
-                            <Minus onClick={() => setQuantity(quantity - 1)} />
+                            <Minus onClick={() => updateQty(item,-1)} />
                         </span>
-                        <span className="cart-item-qty">{quantity}</span>
+                        <span className="cart-item-qty">{item.qty}</span>
                         <span className="cart-item-btn">
-                            <Plus onClick={() => setQuantity(quantity + 1)} />
+                            <Plus onClick={() =>{ 
+                                updateQty(item, 1)
+                                
+                                }} />
                         </span>
                     </div>
                 </div>

@@ -1,91 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import gsap from 'gsap';
-import { GrClose as Close } from 'react-icons/gr';
 
-import CartItem from './CartItem';
-import AdressForm from './AdressForm';
-import CreditCardForm from './CreditCardForm'
-
-const cartHeading = (cartMode) => {
-    switch (cartMode) {
-        case 'CART':
-            return 'סל קניות'
-        case 'ADDRESS':
-            return 'כתובת למשלוח'
-        case 'PAYMENT':
-            return 'פרטי אמצעי תשלום';
-        case 'CONFERMATION':
-            return '';
-        default:
-            return '';
-    }
-}
+import CartItem from './cartBodyComps/CartItem';
 
 
-const Cart = ({ cartItems, setCartItems, setOpenCart }) => {
-    // enum : CART , ADDRESS, PAYMENT, CONFORMATION
-    const [cartMode, setCartMode] = useState('ADDRESS');
-    const [address, setAddress] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        city: '',
-        address: '',
-        zipCode: '',
-        houseNumber: '',
-        secondPhone: '',
-        apartmentNumber: '',
-    });
-    const [paymentDetails, setPaymentDetails] = useState({
-        ownerName: '',
-        ownerId: '',
-        cardNumber: '',
-        expireDate: {
-            mm: '',
-            yy: ''
-        },
-        cvv: ''
-    });
+import CartHeader from './CartHeader';
+import CartBody from './CartBody';
 
-    const closeCart = () => {
-        gsap.to('.cart', 1, {
-            right:'-100%',
-            ease: 'Expo.easeInOut',
-        })
-           gsap.to('.cart', 0.2, {
-            delay: 2,
-            // opacity: 0,
-            display: 'none'
-        })
-    }
+
+
+
+
+
+
+
+
+
+const Cart = ({ cartItems, setCartItems, setOpenCart, cartMode, setCartMode }) => {
+   
+    const [address, setAddress] = useState({});
+    const [paymentDetails, setPaymentDetails] = useState();
+
+    console.log(paymentDetails);
 
 
     return (
         <div className='cart '>
-            <div>
-                <div className="close-crt-btn" onClick={() => closeCart()}>
-                    <Close size={20} />
-                </div>
-                <div className="crt-heading">
-                    <h1>{cartHeading(cartMode)}</h1>
-                </div>
+            <CartHeader cartMode={cartMode}/>
+            {/* <div>
+            
 
-                { false &&
-                    cartItems.map(item => <CartItem key={item.desc} item={item} />)
-                }
-
-               { true && <AdressForm address={address} setAddress={setAddress}/> }
-
-
-               {false &&  <CreditCardForm/> }
-
-
-
-
-            </div>
-            <div className="proceed-payment-btn">
-                המשך לתשלום
-            </div>
+               { cartMode==='CART' && cartItems.map(item => <CartItem key={item.desc} item={item} />)}
+               { cartMode==='ADDRESS' && <AdressForm address={address} setAddress={setAddress}/> }
+               {cartMode === 'PAYMENT' &&  <CreditCardForm/> }
+               {cartMode === 'CONFORMATION' && <Confermation/>}
+            </div> */}
+            <CartBody 
+                cartMode={cartMode}
+                setCartMode={setCartMode}
+                paymentDetails={paymentDetails} 
+                address={address} 
+                setPaymentDetails={setPaymentDetails} 
+                setAddress={setAddress} 
+                cartItems={cartItems}
+                setCartItems={setCartItems}/>
         </div>
     )
 }

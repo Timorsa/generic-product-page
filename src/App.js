@@ -15,17 +15,18 @@ const App = () => {
 
   const [openCart, setOpenCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+   // enum : CART , ADDRESS, PAYMENT, CONFORMATION
+   const [cartMode, setCartMode] = useState('CART');
 
   return (
     <div className="App">
     <ShopOverlay/>
-      {/* <Modal /> */}
       {
-        openCart && <Cart cartItems={cartItems} setCartItems={setCartItems} setOpenCart={setOpenCart} />
+        true && <Cart cartItems={cartItems} setCartItems={setCartItems} setOpenCart={setOpenCart}  cartMode={cartMode} setCartMode={setCartMode}/>
       }
       <Header setOpenCart={setOpenCart} />
-      <Shop cartItems={cartItems} setCartItems={setCartItems} setOpenCart={setOpenCart} />
-      <Footer />
+      <Shop cartItems={cartItems} setCartItems={setCartItems} setOpenCart={setOpenCart} setCartMode={setCartMode} />
+      {/* <Footer /> */}
     </div>
   );
 }

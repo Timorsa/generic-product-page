@@ -20,7 +20,7 @@ const lemonarakData = [
     }
 ]
 
-const Shop = ({ cartItems, setCartItems, setOpenCart }) => {
+const Shop = ({ cartItems, setCartItems, setOpenCart, setCartMode }) => {
 
        useEffect(() => {
         gsap.to('.shop-item', .4, {
@@ -31,6 +31,18 @@ const Shop = ({ cartItems, setCartItems, setOpenCart }) => {
         });
      
     }, []);
+
+        const openCart = () => {
+        gsap.to('.cart', 1, {
+            right: '0',
+            opacity: 1,
+            ease: 'Expo.easeInOut'
+        })
+        setCartMode('CART')
+        setOpenCart(true)
+        
+    }
+
 
     const addToCart = (item) => {
 
@@ -46,7 +58,7 @@ const Shop = ({ cartItems, setCartItems, setOpenCart }) => {
             })
             inCart ? setCartItems(updatedCart) : setCartItems([...cartItems, { ...item, qty: 1 }]);
         }
-        setOpenCart(true)
+        openCart();
     }
 
     return (

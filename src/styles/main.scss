@@ -94,15 +94,13 @@
         justify-content: center;
         padding: 1rem;
         .shop-item{
-            // width: 600px;
-            // height: 300px;
+          
             opacity:0;
             position: relative;
             top: 25px;
             margin: 1rem;
             display: flex;
-           // padding: .4rem;
-            //border-radius: 15px;
+         
             overflow: hidden;
             transition: all .5s ease-in;
             flex-direction: column;
@@ -198,9 +196,10 @@
 }
 
 .cart {
-    display: block;
+    overflow: hidden;
     position: fixed;
-    right: 0;
+    right: -100%;
+    opacity: 0;
     top: 0;
     display: flex;
     flex-direction: column;
@@ -232,10 +231,17 @@
         text-align: right;
         padding: .5rem 1rem;
     }
+    .cart-body{
+        width: 100%;
+        height: 100%;
+        background: #ffffff85;
+     
+    }
     .cart-item{
         width: 18vw;
         height: 15vh;
-        background-color: #e6e6e685;
+        // background-color: #e6e6e685;
+        background: #ffffff85;
         margin: 1.4rem auto;
         display: flex;
         flex-direction: row-reverse;
@@ -292,10 +298,10 @@
     .addressForm {
  display:flex;
  flex-direction: column;
-    
+    width: 100%;
   background: #FFFFFF;
-  margin: 0 auto 100px;
-  padding: 45px;
+//   margin: 0 auto 100px;
+ // padding: 20px 45px;
   h2{
       margin: 1rem 0;
   }
@@ -305,7 +311,7 @@
   width: 100%;
   border: 0;
   margin: 0 0 15px;
-  padding: 15px;
+  padding: 10px;
   box-sizing: border-box;
   font-size: 14px;
 }
@@ -313,25 +319,30 @@ textarea{
 outline: 0;
   background: #f2f2f2;
   width: 100%;
-  height: 250px;
   border: 0;
   margin: 0 0 15px;
-  padding: 15px;
+  padding: 10px;
   box-sizing: border-box;
   font-size: 14px;
 }
 
 }
+.personal-detail{
+    margin: 0 15px ;
+}
 
 .credit-card-form {
+    width: 100%;
+    height: 100%;
  display:flex;
  flex-direction: column;
 text-align: left;
   background: #FFFFFF;
-  margin: 1rem auto 100px;
-  padding: 45px;
+   padding-top: 1.5rem;
+ 
   form{
-      margin-top: 2rem;
+    
+    
   }
 //   h2{
 //       margin: 1rem 0;
@@ -339,25 +350,102 @@ text-align: left;
  input {
   outline: 0;
   background: #f2f2f2;
-  width: 100%;
+  width: 80%;
   border: 0;
-  margin: 0 0 15px;
+  margin: .7rem auto ;
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
-}}
+}
 
+.sumup-price{
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    background: #c7c7c7;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    font-weight: 700;
+}
+
+input:first-of-type{
+    margin-top: 1.2rem
+}
+}
 
     .proceed-payment-btn{
+        width: 100%;
+        border: 0px;
         padding: 2rem ;
         text-align: center;
         background: rgb(250,254,207);
         background: linear-gradient(292deg, rgba(250,254,207,1) 22%, rgba(241,231,34,1) 85%);        font-size: 1.2rem;
         transition: all .4s ;
+        position: absolute;
+        bottom: 0;
+        outline: none;
+        cursor: pointer;
         &:hover{
-            background-color: rgba(241,231,34,1);
-            padding: 2.2rem ;
-            font-weight: bold;
+            transform: scale(1.08);
         }
     }
 }
+
+.confermation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .confermation-img{
+        width: 300px;
+        height: 300px;
+        background-image: url('../assets/confirm.png');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    
+}
+
+
+@media (max-width: 992px) {
+    .shop-cont{
+        height: 100%;
+        width: 100%;
+        h1{
+            padding: 1rem;
+        }
+        .devider{
+            display:none;
+        }
+        .shop-body{
+            .shop-item{
+                margin: 1rem .5rem;
+            }
+        }
+    }
+    .cart{
+        width: 100vw;
+            overflow: scroll;
+        .cart-item{
+            width: 100%;
+        }
+
+        .addressForm {
+            .proceed-payment-btn{
+                margin-top: 25px;
+                position: relative;
+            }
+        }
+    .credit-card-form{
+  .proceed-payment-btn{
+                margin-top: 25px;
+                position: relative;
+            }
+    }
+    }
+
+}
+
+
