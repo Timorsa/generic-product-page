@@ -21,20 +21,11 @@ const Cart = ({ cartItems, setCartItems, setOpenCart, cartMode, setCartMode }) =
     const [address, setAddress] = useState({});
     const [paymentDetails, setPaymentDetails] = useState();
 
-    console.log(paymentDetails);
 
 
     return (
         <div className='cart '>
             <CartHeader cartMode={cartMode}/>
-            {/* <div>
-            
-
-               { cartMode==='CART' && cartItems.map(item => <CartItem key={item.desc} item={item} />)}
-               { cartMode==='ADDRESS' && <AdressForm address={address} setAddress={setAddress}/> }
-               {cartMode === 'PAYMENT' &&  <CreditCardForm/> }
-               {cartMode === 'CONFORMATION' && <Confermation/>}
-            </div> */}
             <CartBody 
                 cartMode={cartMode}
                 setCartMode={setCartMode}

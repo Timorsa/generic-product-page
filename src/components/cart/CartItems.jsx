@@ -3,7 +3,6 @@ import React , {useEffect} from 'react';
 import CartItem from './cartBodyComps/CartItem'
 
 const CartItems = ({cartItems, setCartItems, setCartMode}) => {
-    console.log('in cart items', cartItems)
 
     const updateQty = (cartItem, addValue) => {
      
@@ -12,7 +11,6 @@ const CartItems = ({cartItems, setCartItems, setCartMode}) => {
                     return {...item , qty: item.qty+addValue};
                 else return item
             })
-            console.log('in add',newCart)
             setCartItems(newCart);
             
         
